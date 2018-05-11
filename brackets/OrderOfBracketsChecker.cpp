@@ -6,23 +6,23 @@ using namespace std;
 
 bool OrderOfBracketsChecker::StringChecker(string& checking_string)
 {
-	//возможные скобки для проверки
+	//РІРѕР·РјРѕР¶РЅС‹Рµ СЃРєРѕР±РєРё РґР»СЏ РїСЂРѕРІРµСЂРєРё
 	static const string search_breackets = "{}<>()";
 	int index;
 
-	//перебираем каждый символ в полученной строке
+	//РїРµСЂРµР±РёСЂР°РµРј РєР°Р¶РґС‹Р№ СЃРёРјРІРѕР» РІ РїРѕР»СѓС‡РµРЅРЅРѕР№ СЃС‚СЂРѕРєРµ
 	for (unsigned int i = 0; i < checking_string.length(); i++)
 	{
-		//поиск скобок и определение их индекса в строке search_breackets
+		//РїРѕРёСЃРє СЃРєРѕР±РѕРє Рё РѕРїСЂРµРґРµР»РµРЅРёРµ РёС… РёРЅРґРµРєСЃР° РІ СЃС‚СЂРѕРєРµ search_breackets
 		index = search_breackets.find(checking_string[i]);
 		if (index >= 0)
 		{
-			if (index % 2 == 0) open_breckets.push(checking_string[i]); //если скобка открывающая
+			if (index % 2 == 0) open_breckets.push(checking_string[i]); //РµСЃР»Рё СЃРєРѕР±РєР° РѕС‚РєСЂС‹РІР°СЋС‰Р°СЏ
 			else
 			{
 				if (!open_breckets.empty())
 				{
-					//сравниваем последнюю открытую скобку с открытыт типом текущей скобки 
+					//СЃСЂР°РІРЅРёРІР°РµРј РїРѕСЃР»РµРґРЅСЋСЋ РѕС‚РєСЂС‹С‚СѓСЋ СЃРєРѕР±РєСѓ СЃ РѕС‚РєСЂС‹С‚С‹С‚ С‚РёРїРѕРј С‚РµРєСѓС‰РµР№ СЃРєРѕР±РєРё 
 					if (open_breckets.top() == search_breackets[index - 1])
 						open_breckets.pop();
 					else return 0;
